@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Collection View Controller-->
+        <!--Planets Collection View Controller-->
         <scene sceneID="hO1-MD-ZJv">
             <objects>
-                <collectionViewController id="Vsp-Wz-1iS" sceneMemberID="viewController">
+                <collectionViewController id="Vsp-Wz-1iS" customClass="PlanetsCollectionViewController" customModule="Planets" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="jxH-R8-6h5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +25,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Gg8-Mn-lC5">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlanetCell" id="Gg8-Mn-lC5" customClass="PlanetCollectionViewCell" customModule="Planets" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -66,6 +66,10 @@
                                     <constraint firstItem="PS3-nV-knY" firstAttribute="leading" secondItem="Gg8-Mn-lC5" secondAttribute="leading" id="YYs-zR-PoW"/>
                                     <constraint firstAttribute="trailing" secondItem="PS3-nV-knY" secondAttribute="trailing" id="eP4-Ps-0HM"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="imageview" destination="Et8-od-9rH" id="x40-KA-y6d"/>
+                                    <outlet property="nameLabel" destination="z0D-mb-3Fm" id="YrT-TR-qfX"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -108,13 +112,16 @@
         <!--Settings-->
         <scene sceneID="yKy-Dk-Xp4">
             <objects>
-                <viewController id="skJ-bA-hZC" sceneMemberID="viewController">
+                <viewController id="skJ-bA-hZC" customClass="SettingsViewController" customModule="Planets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v3m-Zn-SXF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Keq-o8-elj">
                                 <rect key="frame" x="345" y="108" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeShouldShowPluto:" destination="skJ-bA-hZC" eventType="valueChanged" id="vZk-Em-2nI"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Pluto a planet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgA-96-I6F">
                                 <rect key="frame" x="20" y="113" width="130" height="21"/>
@@ -138,6 +145,10 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Settings" id="xS0-x1-PRV"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="shouldShowPlutoSwitch" destination="Keq-o8-elj" id="iTv-4j-FxU"/>
+                        <outlet property="switchChanges" destination="bJd-WH-7ix" id="9yl-8p-sna"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57g-VI-l4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
