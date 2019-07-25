@@ -117,40 +117,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Keq-o8-elj">
-                                <rect key="frame" x="345" y="108" width="51" height="31"/>
-                                <connections>
-                                    <action selector="changeShouldShowPluto:" destination="skJ-bA-hZC" eventType="valueChanged" id="vZk-Em-2nI"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Pluto a planet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgA-96-I6F">
                                 <rect key="frame" x="20" y="113" width="130" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uep-FL-fDG">
+                                <rect key="frame" x="345" y="108" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeShouldShowPluto:" destination="skJ-bA-hZC" eventType="valueChanged" id="50E-jg-epg"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fgA-96-I6F" firstAttribute="centerY" secondItem="uep-FL-fDG" secondAttribute="centerY" id="2YG-S6-wis"/>
                             <constraint firstItem="fgA-96-I6F" firstAttribute="leading" secondItem="fCG-cm-xkd" secondAttribute="leading" constant="20" id="5sp-MB-9Ud"/>
-                            <constraint firstItem="fCG-cm-xkd" firstAttribute="trailing" secondItem="Keq-o8-elj" secondAttribute="trailing" constant="20" id="SsC-Aq-PBl"/>
-                            <constraint firstItem="Keq-o8-elj" firstAttribute="top" secondItem="fCG-cm-xkd" secondAttribute="top" constant="20" id="Vd7-Ed-Aav"/>
-                            <constraint firstItem="Keq-o8-elj" firstAttribute="centerY" secondItem="fgA-96-I6F" secondAttribute="centerY" id="bJd-WH-7ix"/>
+                            <constraint firstItem="fCG-cm-xkd" firstAttribute="trailing" secondItem="uep-FL-fDG" secondAttribute="trailing" constant="20" id="dSp-H5-O8S"/>
+                            <constraint firstItem="uep-FL-fDG" firstAttribute="top" secondItem="fCG-cm-xkd" secondAttribute="top" constant="20" id="mbl-dI-XJJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fCG-cm-xkd"/>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="flexibleSpace" id="aTn-CV-61K"/>
-                        <barButtonItem systemItem="done" id="vXd-kq-dYg"/>
+                        <barButtonItem systemItem="done" id="vXd-kq-dYg">
+                            <connections>
+                                <segue destination="4Yh-9s-ObN" kind="unwind" unwindAction="unwindToPlanetsCollectionViewController:" id="Lvw-LI-uth"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Settings" id="xS0-x1-PRV"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="shouldShowPlutoSwitch" destination="Keq-o8-elj" id="iTv-4j-FxU"/>
-                        <outlet property="switchChanges" destination="bJd-WH-7ix" id="9yl-8p-sna"/>
+                        <outlet property="shouldShowPlutoSwitch" destination="uep-FL-fDG" id="VOa-vo-awm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57g-VI-l4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4Yh-9s-ObN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2851" y="-437"/>
         </scene>
